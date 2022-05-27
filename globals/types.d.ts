@@ -1,4 +1,6 @@
-namespace NodeJS {
+declare module 'module-alias/register';
+
+declare namespace NodeJS {
   interface ProcessEnv {
     /**
      * The App environment.
@@ -22,9 +24,10 @@ namespace NodeJS {
   }
 }
 
-declare interface AppConfig {
+interface AppConfig {
   appName: string;
-  env: NodeJS.ProcessEnv;
+  env: ProcessEnv;
 }
 
-declare var __app__config: AppConfig;
+var __app__config: AppConfig;
+var __express__app: import('express').Application;

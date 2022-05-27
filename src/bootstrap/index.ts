@@ -1,10 +1,13 @@
 import express from 'express';
+import helmet from 'helmet';
 import containerServer from './setup';
+import Application from './app';
+const expressApp = new Application();
 
-const rawApp = express();
-rawApp.use(express.json());
+expressApp.app.use(helmet());
+expressApp.app.use(express.json());
 
-const server = containerServer(rawApp);
+const server = containerServer(expressApp.app);
 let app: express.Application | null = null;
 export default async (config?: any) => {
   if (!app) app = server.build();

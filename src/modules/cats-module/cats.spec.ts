@@ -1,3 +1,4 @@
+import { apiClient } from '@japa/api-client';
 import { test } from '@japa/runner';
 
 test('cats endpoint with query parameter returns 200', async ({ client }) => {
