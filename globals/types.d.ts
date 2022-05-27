@@ -1,5 +1,3 @@
-declare module 'module-alias/register';
-
 declare namespace NodeJS {
   interface ProcessEnv {
     /**
@@ -31,3 +29,4 @@ interface AppConfig {
 
 var __app__config: AppConfig;
 var __express__app: import('express').Application;
+var __app__container: import('inversify').Container;

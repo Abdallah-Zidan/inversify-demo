@@ -7,13 +7,13 @@
     "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "@src": ["src"],
-      "@config": ["src/config"],
-      "@errors": ["src/errors"],
-      "@modules": ["src/modules"]
-    },
+    // "baseUrl": "./",
+    // "paths": {
+    //   "@src": ["src"],
+    //   "@config": ["src/config"],
+    //   "@errors": ["src/errors"],
+    //   "@modules": ["src/modules"]
+    // },
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,

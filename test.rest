@@ -9,3 +9,7 @@ Accept: application/json
 
 ###
 GET http://localhost:3000/cats/error
+
+###
+
+GET http://localhost:3000/cats

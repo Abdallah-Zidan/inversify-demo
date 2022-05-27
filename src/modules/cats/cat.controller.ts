@@ -9,14 +9,21 @@ import {
 
 import { inject } from 'inversify';
 import { Cat, CatsService } from './cats.service';
-import { ForbiddenError } from '@errors';
 import { valiadteBody, ValidationMiddleware } from './validations';
+import { ILogger, LoggerFactory, ForbiddenError } from '../../core';
 
 @controller('/cats', (_1, _2, next) => {
   next();
 })
 export class CatsController implements interfaces.Controller {
-  constructor(@inject(CatsService) private catsService: CatsService) {}
+  private logger: ILogger;
+  constructor(
+    @inject(CatsService)
+    private catsService: CatsService,
+    @inject('ILogger') loggerFn: LoggerFactory,
+  ) {
+    this.logger = loggerFn('CATS_CONTROLLER');
+  }
 
   @httpGet('/', ValidationMiddleware)
   private async index(@queryParam() _: any): Promise<Cat[]> {
@@ -25,7 +32,7 @@ export class CatsController implements interfaces.Controller {
 
   @httpPost('/', valiadteBody)
   private async create(@requestBody() body: any) {
-    console.log(body);
+    this.logger.logDebug(body);
     return body;
   }
 

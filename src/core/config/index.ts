@@ -1,10 +1,10 @@
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 if (!global.__app__config) {
-  config();
+  dotenv.config();
   global.__app__config = {
     appName: 'InversifyDemo',
     env: process.env,
   };
 }
 
-export default global.__app__config;
+export const config = global.__app__config;

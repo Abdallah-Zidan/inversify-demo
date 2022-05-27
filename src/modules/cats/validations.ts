@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ValidationError } from '@errors';
+import { ValidationError } from '../../core';
 import { BaseMiddleware } from 'inversify-express-utils';
 import { provide } from 'inversify-binding-decorators';
 import { celebrate, Joi, Segments } from 'celebrate';
