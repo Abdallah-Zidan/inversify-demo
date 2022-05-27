@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ESNext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "useDefineForClassFields": true,
@@ -9,7 +9,10 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "*": ["types/*.d.ts"]
+      "@src": ["src"],
+      "@config": ["src/config"],
+      "@errors": ["src/errors"],
+      "@modules": ["src/modules"]
     },
     "resolveJsonModule": true,
     "declaration": true,
@@ -20,6 +23,11 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "globals", "bin"]
+  },
+  "exclude": ["tests", "scripts", "dist", "bin", "src/**/*.spec.ts", "src/**/*.test.ts"],
+  "ts-node": {
+    "transpileOnly": true
   }
 }

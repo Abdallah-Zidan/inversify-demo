@@ -1,4 +1,4 @@
-import { provide } from "inversify-binding-decorators";
+import { provide } from 'inversify-binding-decorators';
 
 export class Cat {
   constructor(private name: string, private breed: string) {}
@@ -6,7 +6,7 @@ export class Cat {
 
 @provide(CatsService)
 export class CatsService {
-  private _cats: Cat[] = [new Cat("test", "demo"), new Cat("check", "now")];
+  private _cats: Cat[] = [new Cat('test', 'demo'), new Cat('check', 'now')];
 
   get cats() {
     return this._cats;

@@ -1,0 +1,11 @@
+POST http://localhost:3000/cats
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name":"zidan"
+}
+
+
+###
+GET http://localhost:3000/cats/error

@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 export interface BaseHttpError {
   code: number;
   message: string;
@@ -31,7 +31,7 @@ export class ForbiddenError extends HttpError {
 
 export class ValidationError extends HttpError {
   constructor(errors: object[]) {
-    super({ code: 422, message: "invalid data", metadata: { errors } });
+    super({ code: 422, message: 'invalid data', metadata: { errors } });
   }
 }
 
