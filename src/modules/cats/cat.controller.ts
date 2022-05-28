@@ -32,7 +32,7 @@ export class CatsController implements interfaces.Controller {
 
   @httpPost('/', valiadteBody)
   private async create(@requestBody() body: any) {
-    this.logger.logDebug(body);
+    this.logger.logDebug(JSON.stringify(body));
     return body;
   }
 

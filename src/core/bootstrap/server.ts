@@ -6,7 +6,7 @@ import { ConfigFunction } from 'inversify-express-utils';
 export async function setupServer(config: ServerConfig = {}) {
   let instance: express.Application | null = null;
   if (!instance) {
-    const server = setup(app(), config.errorHandler);
+    const server = setup(app(), config.errorHandler, config.middlewares);
     instance = server.build();
   }
   return instance;
@@ -14,4 +14,5 @@ export async function setupServer(config: ServerConfig = {}) {
 
 export interface ServerConfig {
   errorHandler?: ConfigFunction;
+  middlewares?: express.Handler[];
 }

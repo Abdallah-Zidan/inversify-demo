@@ -6,6 +6,8 @@ import {
   getContainer,
   dummyLogger,
 } from '../../core';
+import './cat.controller';
+
 import { Application } from 'express';
 
 let app: Application | null = null;

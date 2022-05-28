@@ -5,17 +5,17 @@ import {
   errorHandler,
   config,
 } from './core';
-
+import './modules';
 const port = config.env.PORT || 3000;
 
 async function main() {
   const app = await setupServer({
     errorHandler,
+    middlewares: commonMiddlewares(),
   });
-  commonMiddlewares(app);
+
   app.listen(port, () => {
     console.log(`app ${config.appName} running at http://localhost:${port}`);
-    console.log('routes registered');
     console.dir(routeInfo(), { depth: null });
   });
 }

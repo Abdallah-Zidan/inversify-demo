@@ -3,6 +3,9 @@ import express from 'express';
 import { handleHttpError, isHttpError } from '../errors';
 import { ILogger, LoggerFactory } from '../logger';
 import { getContainer } from './container';
+import helmet from 'helmet';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 export function errorHandler(app: express.Application) {
   const logger: ILogger =
@@ -24,4 +27,17 @@ export function errorHandler(app: express.Application) {
       else res.status(500).send('unexpected error happened');
     },
   );
+}
+
+export function commonMiddlewares() {
+  return [
+    helmet(),
+    express.json({ limit: process.env.JSON_BODY_LIMIT || '50mb' }),
+    express.urlencoded({
+      extended: true,
+      limit: process.env.URL_ENCODED_BODY_LIMIT || '50mb',
+    }),
+    cookieParser(process.env.APP_KEY || 'secret'),
+    cors(),
+  ];
 }
