@@ -20,6 +20,7 @@ export function errorHandler(app: express.Application) {
       err: Error,
       _1: express.Request,
       res: express.Response,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       _2: express.NextFunction,
     ) => {
       logger.logError(err.message);

@@ -21,7 +21,7 @@ export interface ILogger {
   logDebug(message: string, context?: object): void;
 }
 
-export function buildLgger(name: string = 'LOGGER'): ILogger {
+export function buildLgger(name = 'LOGGER'): ILogger {
   return new Logger(name);
 }
 

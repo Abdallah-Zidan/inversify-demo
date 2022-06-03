@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  node-app:
+    build: . 
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    ports:
+      - "3000:3000"
+    command: npm run dev
+    environment:
+      - REDIS_HOST=redis
+      - MONGO_URL=mongodb://mongo:27017/
+      - MONGO_DATABASE=inversify-demo
+      - NODE_ENV=development
+
+    depends_on: 
+      - redis
+      - mongo
+  
+  redis:
+    image: redis
+  
+  mongo:
+    image: mongo
+

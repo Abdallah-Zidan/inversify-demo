@@ -13,3 +13,44 @@ GET http://localhost:3000/cats/error
 ###
 
 GET http://localhost:3000/cats
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name":"zidan",
+    "age":29
+}
+
+### 
+POST  http://localhost:3000/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email":"ahmed@ali.com",
+    "password":"password"
+}
+
+
+###
+GET http://localhost:3000/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uSWQiOiJjYjUwZmZlNTk0ZjNmNzBjN2JlZDgyNDg1ZWJkNzRmMTAxNTc1YWY5MmRkODg5MWNkNDVjNjZlMjJhYjJkNTBlIiwiaWF0IjoxNjU0MTM2Mzg0LCJleHAiOjE2NTQ3NDExODR9.KZ2seWhOqN01tHc_KNSvf1GrKf0f8UeSSLMH0E6lNj0
+
+###
+DELETE http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uSWQiOiJjYjUwZmZlNTk0ZjNmNzBjN2JlZDgyNDg1ZWJkNzRmMTAxNTc1YWY5MmRkODg5MWNkNDVjNjZlMjJhYjJkNTBlIiwiaWF0IjoxNjU0MTM2Mzg0LCJleHAiOjE2NTQ3NDExODR9.KZ2seWhOqN01tHc_KNSvf1GrKf0f8UeSSLMH0E6lNj0
+
+### 
+POST  http://localhost:3000/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email":"ahmed@ali.com",
+     "name":"ahmed",
+    "password":"password",
+    "passwordConfirmation":"password"
+}
